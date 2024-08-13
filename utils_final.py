@@ -217,7 +217,9 @@ def plot_dynamics(acceleration_to_earL, acceleration_to_earR, exceeding_frames_L
 
     if save_figure:
        plt.savefig(os.path.join(folder_name, f"{filename}_plot.png"), bbox_inches='tight')
-    plt.show()
+       plt.show(block=False)
+       plt.close()
+
 
 # Calculate distances from the nose to the line defined by the ears for exceeding frames
 def calculate_distances_for_exceeding_frames(nose_loc, earL_loc, earR_loc, array, threshold):

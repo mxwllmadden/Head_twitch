@@ -1,12 +1,12 @@
-import os
 import h5py
 from utils_final import *
 
 # Configuration
-folder_name = "1117/h5"
+folder_name = "h5_result"
 threshold = 5.0
 threshold2 = 7.0
 save_figure = True
+
 R = 1e-3  # Measurement noise covariance
 Q = 9e-5  # Process noise covariance
 
@@ -120,6 +120,7 @@ for filename in os.listdir(folder_name):
             excel_data[filename].extend(filtered_exceeding_frames)
         else:
             excel_data[filename] = (filtered_exceeding_frames)
+        
 
 # Prepare data for the DataFrame
 excel_rows = [[filename, ", ".join(map(str, frames))] for filename, frames in excel_data.items()]
